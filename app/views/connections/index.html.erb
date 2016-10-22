@@ -1,0 +1,34 @@
+<div id="container">
+	<button style="display: inline-block;"><a href="/users">All Users</a></button>
+	<div id="user_profile">
+		<h4>Hi, <%= @user.name %>!</h4>
+		<p>Here is your profile description:</p>
+		<p><%= @user.description %></p>
+	</div>
+	<div id="network">
+		<b>Your Professional Network:</b>
+		<% @users.each do |user| %>
+		<ul>
+			<li><a href="/users/<%= user.id %>"><%= user.name %></a></li>
+		</ul>
+		<% end %>
+	</div>
+	<div id="invites">
+		<b>Invitations:</b>
+		<p>The following people asked you to be in their network:</p>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Actions</th>
+			</tr>
+			<tr>
+				<td><a href="">Tom Jones</a></td>
+				<td>
+				<button type="submit" name="accept">Accept</button>
+				<button type="submit" name="ignore">Ignore</button>
+				</td>
+			</tr>
+		</table>		
+	</div>
+
+</div>

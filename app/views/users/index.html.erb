@@ -1,0 +1,22 @@
+<div id="container">
+	<button style="display: inline-block"><a href="/professional_profile" >My Profile</a></button>
+	<hr>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Actions</th>
+		</tr>
+		<% @users.each do |user| %>
+		<tr>
+			<td><a href="/users/<%= user.id %>"><%= user.name %></a></td>
+			<td>
+			<form action="/connections" method="post">
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			<input type="hidden" name="user_id" value="<%= user.id %>">
+			<button type="submit" name="connect">Connect</button>
+			</form>
+			</td>
+		</tr>
+		<% end %>
+	</table>	
+</div>
